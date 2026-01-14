@@ -188,18 +188,28 @@ add_filter( 'request', __NAMESPACE__ . '\\remove_search_from_query' );
 /**
  * Unregister Search Blocks
  *
- * @link   https://developer.wordpress.org/reference/hooks/init/
- * @hooked action init
+ * @link   https://developer.wordpress.org/reference/hooks/admin_print_scripts/
+ * @hooked action admin_print_scripts
  *
  * @return void
  */
 function unregister_search_blocks(): void {
-	unregister_block_type( 'core/search' );
-	unregister_block_type( 'core/search-form' );
-	unregister_block_type( 'core/search-results' );
+	$blocks = array(
+		'core/search',
+	);
+
+	echo '<script type="text/javascript">';
+	echo "addEventListener('DOMContentLoaded', function() {";
+	echo 'window.wp.domReady( function() {';
+	foreach ( $blocks as $block ) {
+		echo "window.wp.blocks.unregisterBlockType( '" . esc_js( $block ) . "' );";
+	}
+	echo '} );';
+	echo '} );';
+	echo '</script>';
 }
 
-add_action( 'init', __NAMESPACE__ . '\\unregister_search_blocks', PHP_INT_MAX );
+add_action( 'admin_print_scripts', __NAMESPACE__ . '\\unregister_search_blocks', PHP_INT_MAX );
 
 /**
  * Unregister Search Widget
