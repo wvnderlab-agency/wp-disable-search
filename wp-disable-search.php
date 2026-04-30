@@ -1,17 +1,18 @@
 <?php
 
 /*
- * Plugin Name:     Disable Search
+ * Plugin Name:     Wvnderlab - Disable Search
  * Plugin URI:      https://github.com/wvnderlab-agency/wp-disable-search/
+ * Description:     Disable search.
  * Author:          Wvnderlab Agency
  * Author URI:      https://wvnderlab.com
  * Text Domain:     wvnderlab-disable-search
- * Version:         0.1.1
+ * Version:         0.2.0
  */
 
 /*
  *  ################
- *  ##            ##    Copyright (c) 2025 Wvnderlab Agency
+ *  ##            ##    Copyright (c) 2026 Wvnderlab Agency
  *  ##
  *  ##   ##  ###  ##    ✉️ moin@wvnderlab.com
  *  ##    #### ####     🔗 https://wvnderlab.com
