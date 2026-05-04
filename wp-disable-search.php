@@ -177,6 +177,11 @@ add_filter( 'get_search_form', __NAMESPACE__ . '\\disable_search_form' );
  * @return array
  */
 function remove_search_from_query( array $query_vars ): array {
+	if ( is_admin() ) {
+
+		return $query_vars;
+	}
+
 	if ( isset( $query_vars['s'] ) ) {
 		unset( $query_vars['s'] );
 	}
